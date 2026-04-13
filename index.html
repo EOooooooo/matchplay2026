@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matchplay Through The Season 2026 – 't Kruisselt</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & tokens ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gd: #1a4a2e;   /* green dark */
+  --gm: #2d7a4a;   /* green mid */
+  --gl: #e8f5e9;   /* green light */
+  --gs: #f0faf3;   /* green subtle */
+  --gold: #c8a84b;
+  --cream: #f8f6f0;
+  --text: #1c1c1a;
+  --muted: #6b7068;
+  --border: #dde5dd;
+  --white: #ffffff;
+  --r: 10px;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+body { font-family: var(--font-body); color: var(--text); background: var(--cream); font-size: 15px; line-height: 1.6; }
+a { color: var(--gm); }
+
+/* ── Nav ─────────────────────────────────────────── */
+nav {
+  background: var(--gd);
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-logo { color: #fff; font-family: var(--font-head); font-size: 16px; letter-spacing: 0.01em; }
+.nav-logo span { color: var(--gold); font-style: italic; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; font-weight: 500; letter-spacing: 0.02em; transition: color .15s; }
+.nav-links a:hover { color: #fff; }
+@media (max-width: 600px) { .nav-links { display: none; } }
+
+/* ── Hero ────────────────────────────────────────── */
+.hero {
+  background: var(--gd);
+  color: #fff;
+  padding: 56px 32px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 0%, rgba(45,122,74,0.5) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.12em; font-weight: 600;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: var(--font-head); font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600; line-height: 1.15; margin-bottom: 8px;
+}
+.hero h1 em { font-style: italic; color: rgba(255,255,255,0.75); }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+.hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.badge {
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px; padding: 5px 16px;
+  font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Layout ──────────────────────────────────────── */
+.page-wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px; }
+.section-title {
+  font-family: var(--font-head); font-size: 24px; color: var(--gd);
+  margin-bottom: 6px;
+}
+.section-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.section-divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+/* ── Poules ──────────────────────────────────────── */
+.poules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.poule-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.poule-card-header {
+  background: var(--gd);
+  color: #fff;
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.poule-label {
+  font-family: var(--font-head); font-size: 18px; font-weight: 600;
+}
+.poule-sublabel { font-size: 12px; color: rgba(255,255,255,0.55); }
+.poule-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.poule-table th {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); padding: 8px 12px; text-align: left;
+  background: var(--gs); border-bottom: 1px solid var(--border);
+}
+.poule-table th.num { text-align: right; }
+.poule-table td { padding: 10px 12px; border-bottom: 1px solid #f0f4f0; vertical-align: middle; }
+.poule-table td.num { text-align: right; color: var(--muted); }
+.poule-table td.pts { font-weight: 600; color: var(--gd); text-align: right; }
+.poule-table tr:last-child td { border-bottom: none; }
+.poule-table tr:hover td { background: var(--gs); }
+.team-name { font-weight: 500; }
+.team-hint { font-size: 11px; color: #aaa; font-weight: 400; margin-left: 6px; }
+
+/* ── Bracket ─────────────────────────────────────── */
+/* Desktop bracket */
+.bracket-desktop {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.b-round {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+}
+.b-spacer { width: 32px; flex-shrink: 0; position: relative; }
+.b-round-header {
+  text-align: center;
+  padding: 8px 4px 14px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+.b-round-header .b-date { display: block; font-size: 10px; color: var(--gold); font-weight: 600; margin-top: 3px; letter-spacing: 0.04em; }
+.b-matches { flex: 1; display: flex; flex-direction: column; }
+
+/* QF: 2 pairs of 2 matches each */
+.b-pair {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-right: 0;
+}
+.b-match {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 5px 0;
+  position: relative;
+  min-height: 72px;
+}
+.b-match.winner-slot {
+  background: var(--gs);
+  border-style: dashed;
+}
+.b-match.finale-slot {
+  background: linear-gradient(135deg, #fffef7 0%, #fdf8e8 100%);
+  border-color: var(--gold);
+  min-height: 90px;
+}
+.b-match.derde-slot {
+  background: var(--gs);
+  min-height: 90px;
+}
+.b-slot { font-size: 12px; font-weight: 500; padding: 3px 0; line-height: 1.3; color: var(--text); }
+.b-slot.empty { color: var(--muted); font-style: italic; font-weight: 400; }
+.b-vs { font-size: 10px; color: #ccc; font-weight: 400; padding: 1px 0; }
+.b-match-label {
+  font-size: 9px; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.b-match.finale-slot .b-match-label { color: var(--gold); }
+
+/* Connector lines */
+/* Right-side bracket: pair → spacer connector */
+.b-pair-connector {
+  position: absolute;
+  right: -32px;
+  top: 0; bottom: 0;
+  width: 32px;
+  pointer-events: none;
+}
+/* Inline SVG in each spacer */
+.b-spacer svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+/* For final round: single match centered */
+.b-round.final { justify-content: flex-start; }
+.b-round.final .b-matches { justify-content: center; }
+.b-round.final .b-match { margin: 6px 0; }
+
+/* SF: 1 match per pair, centered */
+.b-pair.sf-pair { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.b-pair.sf-pair .b-match { flex: none; margin: 5px 0; }
+
+/* Mobile bracket */
+.bracket-mobile { display: none; }
+
+@media (max-width: 767px) {
+  .bracket-desktop { display: none; }
+  .bracket-mobile { display: block; }
+}
+
+.m-round { margin-bottom: 28px; }
+.m-round-header {
+  display: flex; align-items: baseline; gap: 10px;
+  border-left: 3px solid var(--gm);
+  padding-left: 12px; margin-bottom: 14px;
+}
+.m-round-title { font-family: var(--font-head); font-size: 18px; color: var(--gd); }
+.m-round-date { font-size: 12px; color: var(--gold); font-weight: 600; }
+.m-match {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.m-match.finale-slot { border-color: var(--gold); background: #fffef7; }
+.m-match-label { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+.m-slot { font-size: 14px; font-weight: 500; padding: 4px 0; }
+.m-slot.empty { color: var(--muted); font-style: italic; font-weight: 400; }
+.m-vs { font-size: 11px; color: #ccc; padding: 1px 0; }
+
+/* ── Regels accordion ────────────────────────────── */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.rule-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 18px;
+}
+.rule-card-title { font-size: 13px; font-weight: 600; color: var(--gd); margin-bottom: 6px; }
+.rule-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.rule-card strong { color: var(--text); }
+
+details { border: 1px solid var(--border); border-radius: var(--r); background: var(--white); margin-bottom: 10px; }
+summary {
+  padding: 14px 18px; font-weight: 600; font-size: 14px; cursor: pointer;
+  list-style: none; display: flex; align-items: center; justify-content: space-between;
+}
+summary::after { content: '+'; font-size: 18px; color: var(--gm); }
+details[open] summary::after { content: '−'; }
+.details-body { padding: 0 18px 16px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+.details-body p { margin-bottom: 8px; }
+.details-body strong { color: var(--text); }
+
+/* ── Alert ───────────────────────────────────────── */
+.alert {
+  border: 1px solid #f5c542; background: #fffbea;
+  border-radius: var(--r); padding: 12px 18px;
+  font-size: 13px; color: #7a5c00; line-height: 1.6; margin-bottom: 20px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Footer ──────────────────────────────────────── */
+footer {
+  background: var(--gd); color: rgba(255,255,255,0.55);
+  text-align: center; padding: 28px;
+  font-size: 13px; line-height: 1.8;
+}
+footer a { color: rgba(255,255,255,0.75); }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">⛳ Matchplay <span>Through The Season</span> 2026</div>
+  <div class="nav-links">
+    <a href="#poules">Poules</a>
+    <a href="#schema">Schema</a>
+    <a href="#regels">Regels</a>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-eyebrow">Golf &amp; Country Club 't Kruisselt</div>
+  <h1>Matchplay<br><em>Through The Season</em> 2026</h1>
+  <div class="hero-sub">Foursomes alternate shot · 6 poules · Seizoenscompetitie</div>
+  <div class="hero-badges">
+    <span class="badge">6 poules</span>
+    <span class="badge">30 teams</span>
+    <span class="badge">Matchplay</span>
+    <span class="badge">HCP t/m 54</span>
+    <span class="badge">Poules t/m 15 aug</span>
+  </div>
+</div>
+
+<!-- ── Poules ─────────────────────────────────────── -->
+<div class="page-wrap">
+<section id="poules">
+  <div class="section-title">Poule-overzicht</div>
+  <div class="section-sub">Halverwege de competitie worden de standen bijgewerkt. W = gewonnen · G = gelijk · V = verloren · Pt = punten.</div>
+
+  <div class="alert">
+    <span class="alert-icon">⚠️</span>
+    <span><strong>Let op – hole 8:</strong> Hole 8 is tijdens de gehele poule-fase buiten gebruik. Deze hole wordt beschouwd als gelijk gespeeld. In de 2e ronde geldt hetzelfde voor hole 17. Houd rekening met de afslaginvolgorde (zie art. 6 reglement).</span>
+  </div>
+
+  <div class="poules-grid">
+
+    <!-- ✏️ Poule A -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule A</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th class="num">Gespeeld</th>
+            <th class="num">W</th>
+            <th class="num">G</th>
+            <th class="num">V</th>
+            <th class="num">Pt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">A1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">A2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">A3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">A4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">A5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ✏️ Poule B -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule B</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr>
+            <th>Team</th><th class="num">Gespeeld</th><th class="num">W</th><th class="num">G</th><th class="num">V</th><th class="num">Pt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">B1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">B2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">B3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">B4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">B5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ✏️ Poule C -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule C</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr><th>Team</th><th class="num">Gespeeld</th><th class="num">W</th><th class="num">G</th><th class="num">V</th><th class="num">Pt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">C1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">C2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">C3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">C4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">C5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ✏️ Poule D -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule D</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr><th>Team</th><th class="num">Gespeeld</th><th class="num">W</th><th class="num">G</th><th class="num">V</th><th class="num">Pt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">D1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">D2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">D3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">D4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">D5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ✏️ Poule E -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule E</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr><th>Team</th><th class="num">Gespeeld</th><th class="num">W</th><th class="num">G</th><th class="num">V</th><th class="num">Pt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">E1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">E2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">E3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">E4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">E5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ✏️ Poule F -->
+    <div class="poule-card">
+      <div class="poule-card-header">
+        <div>
+          <div class="poule-label">Poule F</div>
+          <div class="poule-sublabel">5 teams</div>
+        </div>
+      </div>
+      <table class="poule-table">
+        <thead>
+          <tr><th>Team</th><th class="num">Gespeeld</th><th class="num">W</th><th class="num">G</th><th class="num">V</th><th class="num">Pt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="team-name">F1</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">F2</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">F3</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">F4</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+          <tr><td><span class="team-name">F5</span><span class="team-hint">naam invullen</span></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="pts">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /poules-grid -->
+</section>
+
+<hr class="section-divider">
+
+<!-- ── Knock-out schema ──────────────────────────── -->
+<section id="schema">
+  <div class="section-title">Knock-out schema</div>
+  <div class="section-sub">
+    Kwartfinale: 6 poulewinnaars + 2 beste nummers 2. Speelschema op basis van bijgevoegd loting.
+    <br>✏️ Vul de teamnamen in zodra de poules zijn afgerond.
+  </div>
+
+  <!-- ═══ DESKTOP BRACKET ════════════════════════ -->
+  <div class="bracket-desktop" id="bracket-desktop">
+
+    <!-- Round 1: Kwartfinale -->
+    <div class="b-round">
+      <div class="b-round-header">
+        Kwartfinale
+        <span class="b-date">uiterlijk 31-08-2026</span>
+      </div>
+      <div class="b-matches">
+        <!-- Pair 1: QF1 + QF2 → SF1 -->
+        <div class="b-pair" id="pair-1">
+          <div class="b-match" id="qf1">
+            <div class="b-match-label">KF 1</div>
+            <div class="b-slot empty">Winnaar Poule A</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Beste nr. 2 (2)</div>
+          </div>
+          <div class="b-match" id="qf2">
+            <div class="b-match-label">KF 2</div>
+            <div class="b-slot empty">Winnaar Poule B</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Winnaar Poule E</div>
+          </div>
+        </div>
+        <!-- Pair 2: QF3 + QF4 → SF2 -->
+        <div class="b-pair" id="pair-2">
+          <div class="b-match" id="qf3">
+            <div class="b-match-label">KF 3</div>
+            <div class="b-slot empty">Winnaar Poule C</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Winnaar Poule D</div>
+          </div>
+          <div class="b-match" id="qf4">
+            <div class="b-match-label">KF 4</div>
+            <div class="b-slot empty">Winnaar Poule F</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Beste nr. 2 (1)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacer 1 (with SVG connector lines) -->
+    <div class="b-spacer" id="spacer1"></div>
+
+    <!-- Round 2: Halve finale -->
+    <div class="b-round">
+      <div class="b-round-header">
+        Halve finale
+        <span class="b-date">za 05-09-2026 · 13:30</span>
+      </div>
+      <div class="b-matches">
+        <div class="b-pair sf-pair" id="sf-pair-1">
+          <div class="b-match winner-slot" id="sf1">
+            <div class="b-match-label">HF 1</div>
+            <div class="b-slot empty">Winnaar KF 1</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Winnaar KF 2</div>
+          </div>
+        </div>
+        <div class="b-pair sf-pair" id="sf-pair-2">
+          <div class="b-match winner-slot" id="sf2">
+            <div class="b-match-label">HF 2</div>
+            <div class="b-slot empty">Winnaar KF 3</div>
+            <div class="b-vs">vs</div>
+            <div class="b-slot empty">Winnaar KF 4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacer 2 -->
+    <div class="b-spacer" id="spacer2"></div>
+
+    <!-- Round 3: Finale + 3e/4e -->
+    <div class="b-round final">
+      <div class="b-round-header">
+        Finale
+        <span class="b-date">zo 06-09-2026 · 13:30</span>
+      </div>
+      <div class="b-matches" style="justify-content: center; display: flex; flex-direction: column;">
+        <div class="b-match finale-slot" id="finale">
+          <div class="b-match-label" style="color:var(--gold)">🏆 Finale – 1e / 2e plaats</div>
+          <div class="b-slot empty">Winnaar HF 1</div>
+          <div class="b-vs">vs</div>
+          <div class="b-slot empty">Winnaar HF 2</div>
+        </div>
+        <div class="b-match derde-slot" id="derde">
+          <div class="b-match-label">3e / 4e plaats</div>
+          <div class="b-slot empty">Verliezer HF 1</div>
+          <div class="b-vs">vs</div>
+          <div class="b-slot empty">Verliezer HF 2</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /bracket-desktop -->
+
+  <!-- ═══ MOBILE BRACKET ════════════════════════ -->
+  <div class="bracket-mobile">
+
+    <div class="m-round">
+      <div class="m-round-header">
+        <span class="m-round-title">Kwartfinale</span>
+        <span class="m-round-date">uiterlijk 31-08-2026</span>
+      </div>
+      <div class="m-match"><div class="m-match-label">KF 1</div><div class="m-slot empty">Winnaar Poule A</div><div class="m-vs">vs</div><div class="m-slot empty">Beste nr. 2 (2)</div></div>
+      <div class="m-match"><div class="m-match-label">KF 2</div><div class="m-slot empty">Winnaar Poule B</div><div class="m-vs">vs</div><div class="m-slot empty">Winnaar Poule E</div></div>
+      <div class="m-match"><div class="m-match-label">KF 3</div><div class="m-slot empty">Winnaar Poule C</div><div class="m-vs">vs</div><div class="m-slot empty">Winnaar Poule D</div></div>
+      <div class="m-match"><div class="m-match-label">KF 4</div><div class="m-slot empty">Winnaar Poule F</div><div class="m-vs">vs</div><div class="m-slot empty">Beste nr. 2 (1)</div></div>
+    </div>
+
+    <div class="m-round">
+      <div class="m-round-header">
+        <span class="m-round-title">Halve finale</span>
+        <span class="m-round-date">za 05-09-2026 · 13:30</span>
+      </div>
+      <div class="m-match"><div class="m-match-label">HF 1</div><div class="m-slot empty">Winnaar KF 1</div><div class="m-vs">vs</div><div class="m-slot empty">Winnaar KF 2</div></div>
+      <div class="m-match"><div class="m-match-label">HF 2</div><div class="m-slot empty">Winnaar KF 3</div><div class="m-vs">vs</div><div class="m-slot empty">Winnaar KF 4</div></div>
+    </div>
+
+    <div class="m-round">
+      <div class="m-round-header">
+        <span class="m-round-title">Finale</span>
+        <span class="m-round-date">zo 06-09-2026 · 13:30</span>
+      </div>
+      <div class="m-match finale-slot"><div class="m-match-label">🏆 1e / 2e plaats</div><div class="m-slot empty">Winnaar HF 1</div><div class="m-vs">vs</div><div class="m-slot empty">Winnaar HF 2</div></div>
+      <div class="m-match"><div class="m-match-label">3e / 4e plaats</div><div class="m-slot empty">Verliezer HF 1</div><div class="m-vs">vs</div><div class="m-slot empty">Verliezer HF 2</div></div>
+    </div>
+
+  </div><!-- /bracket-mobile -->
+
+</section>
+
+<hr class="section-divider">
+
+<!-- ── Regels ─────────────────────────────────── -->
+<section id="regels">
+  <div class="section-title">Spelregels</div>
+  <div class="section-sub">Samenvatting van het wedstrijdreglement. Het volledige reglement is op te vragen bij de commissie.</div>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-card-title">Speelformaat</div>
+      <p>Foursomes alternate shot: om en om afslaan binnen het team. Op <strong>even holes</strong> slaat speler 1 af, op <strong>oneven holes</strong> speler 2. Ook bij foutslag of airshot: wisselen! Overtreding = verlies van de hole.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-title">Handicapverrekening</div>
+      <p>Tel de playing handicaps van een team bij elkaar op. Bereken het verschil tussen beide teams en vermenigvuldig met <strong>3/8</strong> (afronden). Maximum: poules <strong>5 slagen</strong>, kwartfinale <strong>3 slagen</strong>, halve finale &amp; finale <strong>2 slagen</strong>.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-title">Puntentelling (poules)</div>
+      <p>Winst = <strong>3 punten</strong>, gelijkspel = <strong>1 punt</strong>, verlies = 0 punten. In de poules is een gelijkspel na 18 holes geldig. Bij knock-out: doorspelen tot er een winnaar is.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-card-title">Deadline &amp; contact</div>
+      <p>Poulewedstrijden: uiterlijk <strong>15 augustus 2026</strong>. Uitslagen mailen naar Leo Vlutters: <a href="mailto:v.vrielink@kpnplanet.nl">v.vrielink@kpnplanet.nl</a>. Wedstrijdcommissie: Ron Lemmers &amp; Leo Vlutters.</p>
+    </div>
+  </div>
+
+  <details>
+    <summary>Kwalificatie-eisen voor deelname</summary>
+    <div class="details-body">
+      <p>Deelnemers dienen lid te zijn van Golf &amp; Country Club 't Kruisselt en baanpermissie te hebben.</p>
+      <p>Vereist: <strong>NGF exact handicap van 54 of lager</strong> én minimaal <strong>6 Q-kaarten gelopen in 2025</strong>.</p>
+      <p>Kosten deelname: <strong>€ 10,00 per team</strong>.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Rangschikking bij gelijk puntenaantal</summary>
+    <div class="details-body">
+      <p>Bij gelijk puntenaantal geeft het <strong>onderlinge wedstrijdresultaat</strong> de doorslag.</p>
+      <p>Als dat ook gelijk is: <strong>totaal aantal gewonnen holes</strong> over alle poulewedstrijden telt mee.</p>
+      <p>Als dat ook gelijk is: <strong>loting</strong> of een extra onderlinge wedstrijd in overleg.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Vervanging van een teamlid</summary>
+    <div class="details-body">
+      <p>Vervanging is toegestaan indien de vervanger: <strong>lid is van 't Kruisselt</strong>, baanpermissie heeft, minimaal 6 Q-kaarten liep in 2025 en geen deel uitmaakt van een ander nog actief team in de competitie.</p>
+      <p><strong>Vervanging dient vooraf gemeld te worden bij de wedstrijdcommissie.</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Niet komen opdagen / afmelden</summary>
+    <div class="details-body">
+      <p>Niet opdagen = reglementaire verlies <strong>5-0</strong>, tenzij beide teams een nieuwe afspraak overeenkomen.</p>
+      <p>Afmelden is mogelijk tot <strong>3 uur voor de afgesproken starttijd</strong>. Daarna z.s.m. een nieuwe datum afspreken. Geschillen worden voorgelegd aan de wedstrijdcommissie (bindend besluit).</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Terugtrekking uit de competitie</summary>
+    <div class="details-body">
+      <p>Alleen mogelijk met zeer gegronde reden. Alle reeds gespeelde uitslagen van het terugtrekkende team worden <strong>geschrapt</strong>. Alle overgebleven teams in de betreffende poule krijgen elk <strong>3 punten</strong> toegekend voor de niet-gespeelde wedstrijden.</p>
+    </div>
+  </details>
+
+</section>
+</div><!-- /page-wrap -->
+
+<!-- ── Footer ────────────────────────────────────── -->
+<footer>
+  <div>Matchplay Through The Season 2026 · Golf &amp; Country Club 't Kruisselt</div>
+  <div>Wedstrijdcommissie: Ron Lemmers &amp; Leo Vlutters · <a href="mailto:v.vrielink@kpnplanet.nl">v.vrielink@kpnplanet.nl</a></div>
+</footer>
+
+<script>
+/* ── Draw bracket connector lines via SVG ── */
+function drawConnectors() {
+  if (window.innerWidth < 768) return;
+
+  ['spacer1','spacer2'].forEach(id => {
+    const sp = document.getElementById(id);
+    if (sp) sp.querySelectorAll('svg').forEach(s => s.remove());
+  });
+
+  function makeSvg(container) {
+    const r = container.getBoundingClientRect();
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;';
+    container.appendChild(svg);
+    return { svg, r };
+  }
+
+  function relMidY(elId, containerRect) {
+    const el = document.getElementById(elId);
+    if (!el) return 0;
+    const r = el.getBoundingClientRect();
+    return (r.top + r.bottom) / 2 - containerRect.top;
+  }
+
+  function line(svg, d) {
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke', '#2d7a4a');
+    p.setAttribute('stroke-width', '1.5');
+    p.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(p);
+  }
+
+  /* Spacer 1: QF → SF */
+  const sp1 = document.getElementById('spacer1');
+  if (sp1) {
+    const { svg, r } = makeSvg(sp1);
+    const w = r.width, mid = w / 2;
+    const y1 = relMidY('qf1', r), y2 = relMidY('qf2', r);
+    const y3 = relMidY('qf3', r), y4 = relMidY('qf4', r);
+    const ys1 = relMidY('sf1', r), ys2 = relMidY('sf2', r);
+    /* Pair 1 (QF1+QF2 → SF1) */
+    line(svg, `M0,${y1} H${mid} V${ys1} H${w}`);
+    line(svg, `M0,${y2} H${mid}`);
+    /* Pair 2 (QF3+QF4 → SF2) */
+    line(svg, `M0,${y3} H${mid} V${ys2} H${w}`);
+    line(svg, `M0,${y4} H${mid}`);
+  }
+
+  /* Spacer 2: SF → Finale */
+  const sp2 = document.getElementById('spacer2');
+  if (sp2) {
+    const { svg, r } = makeSvg(sp2);
+    const w = r.width, mid = w / 2;
+    const ys1 = relMidY('sf1', r), ys2 = relMidY('sf2', r);
+    const yf = relMidY('finale', r);
+    line(svg, `M0,${ys1} H${mid} V${yf} H${w}`);
+    line(svg, `M0,${ys2} H${mid}`);
+  }
+}
+
+window.addEventListener('load', drawConnectors);
+window.addEventListener('resize', drawConnectors);
+</script>
+</body>
+</html>
